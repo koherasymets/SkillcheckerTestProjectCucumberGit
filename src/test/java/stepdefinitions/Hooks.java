@@ -11,7 +11,7 @@ import utils.TestContext;
 
 public class Hooks {
 
-    public static TestContext context;
+    private static TestContext context;
 
     @Before
     public void setUp() {
@@ -40,5 +40,9 @@ public class Hooks {
         if (context.driver != null) {
             context.driver.quit();
         }
+    }
+
+    public static TestContext getContext() {
+        return context;
     }
 }

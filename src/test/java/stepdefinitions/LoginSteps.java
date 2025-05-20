@@ -1,7 +1,7 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.*;
-import io.qameta.allure.Step;
+import io.qameta.allure.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.DashboardPage;
 import pages.SkillMainPage;
@@ -9,10 +9,15 @@ import utils.TestContext;
 
 import static org.junit.Assert.assertTrue;
 
+@Epic("Authentication")
+@Feature("Login")
+@Owner("Konstantin")
+@Story("Positive login scenarios")
+@Severity(SeverityLevel.BLOCKER)
 public class LoginSteps {
 
-    SkillMainPage skillMainPage = new SkillMainPage(Hooks.context);
-    TestContext context = Hooks.context;
+    TestContext context = Hooks.getContext();
+    SkillMainPage skillMainPage = new SkillMainPage(context);
     DashboardPage dashboardPage;
 
     @Given("I am on the login page")
